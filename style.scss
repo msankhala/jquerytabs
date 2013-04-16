@@ -1,0 +1,29 @@
+ul{
+  margin: 0;
+  padding: 0;
+  li{
+    list-style-type:none; 
+    display: inline;
+    padding: 5px;
+    background: #ccc;
+  }  
+}
+li.active{
+ background: indianred; 
+}
+
+#container{
+  position: relative;
+ div{
+   position : absolute;
+   top: 0px;
+   width: 200px;
+   height: 100px;
+   background: indianred;
+   padding: 5px;
+  }
+}
+
+div.active{
+ z-index:1;
+}
