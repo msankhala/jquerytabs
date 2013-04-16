@@ -19,16 +19,20 @@ jQuery.fn.tabs = function(control){
   });
   var firstName = element.find("li:first").attr("data-tab"); 
   element.trigger("change.tabs", firstName);
+
+  //Chage the url hash wit the tab id 
+    //change the hash of window.
+  element.bind("change.tabs", function(e, tabName){ 
+    window.location.hash = tabName;
+  });
+
+  $(window).bind("hashchange", function(){
+    var tabName = window.location.hash.slice(1); 
+    $("#tabs").trigger("change.tabs", tabName);
+  });
+
   return this;
 };
 $(function(){
   $("ul#tabs").tabs("#container");
-
-  //change the hash of window.
-  $("#tabs").bind("change.tabs", function(e, tabName){ window.location.hash = tabName;
-  });
-
-  $(window).bind("hashchange", function(){
-  var tabName = window.location.hash.slice(1); $("#tabs").trigger("change.tabs", tabName);
-  });
 });
